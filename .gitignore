@@ -1,3 +1,21 @@
+# IDE
 .idea/
+
+# Byte-compiled / optimized / DLL files
 __pycache__/
-.venv/
+*.py[cod]
+*$py.class
+
+# Environments
+.env
+.venv
+env/
+venv/
+ENV/
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# IPython
+profile_default/
+ipython_config.py
