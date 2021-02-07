@@ -3,7 +3,12 @@ from .population import Individual
 
 
 # generates and returns offspring by crossover
-def produce_offspring(parent_1, parent_2, mutation_rate):
+def produce_offspring(parent_1, parent_2, crossover_rate, mutation_rate):
+    # do crossover by chance, according to the crossover rate
+    if random.random() > crossover_rate:
+        # do not do crossover
+        return (parent_1, parent_2)
+    
     # crossover at random index
     crossover_index = random.randint(1, 100)
     offspring_1_genotype = parent_1.genotype[:crossover_index] + parent_2.genotype[crossover_index:]
@@ -26,8 +31,7 @@ def mutate_by_chance(genotype, mutation_rate):
     mutated_genotype = ""
 
     for index in range(len(genotype)):
-        r = random.random()
-        if r >= mutation_rate:
+        if random.random() >= mutation_rate:
             # keep bit
             mutated_genotype += genotype[index]
         else:

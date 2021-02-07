@@ -1,21 +1,17 @@
 import random
+import numpy as np
 
 
 class Individual:
-    counter = 1  # static variable for creating unique IDs
-
     def __init__(self, genotype):
-        self.genotype = genotype  # bitstrings
+        self.genotype = genotype  # bitstring
         self.fitness = None
 
-        # fitness scaled to positive number line
+        # fitness shifted to positive number line
         self.positive_fitness = None
 
         # used for plotting
-        self.phenotype = None
-
-        self.id = Individual.counter
-        Individual.counter += 1
+        self.decimal_value = None
 
 
 def create_initial_population(population_size):
@@ -32,16 +28,17 @@ def create_initial_population(population_size):
     return population
 
 
-# applies fitness to all individuals and returns total positive fitness of population
+# Evaluates population and applies fitness to all individuals and returns total positive fitness of population
 def apply_fitness(population, fitness_function):
     total_positive_fitness = 0
 
     for individual in population:
-        fitness, positive_fitness, phenotype = fitness_function(individual.genotype)
+        fitness, positive_fitness, decimal_value = fitness_function(individual.genotype)
         individual.fitness = fitness
         individual.positive_fitness = positive_fitness
-        individual.phenotype = phenotype
+        individual.decimal_value = decimal_value
 
         total_positive_fitness += positive_fitness
 
     return total_positive_fitness
+    

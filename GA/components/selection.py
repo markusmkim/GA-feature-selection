@@ -22,8 +22,8 @@ def select_parents(population, total_positive_fitness):
         p2 = select_one_parent()
 
         # prevent parent mating itself
-        while p1.id == p2.id:
-            p2 = select_one_parent()
+        # while p1.id == p2.id:
+        #    p2 = select_one_parent()
 
         parents.append((p1, p2))
 

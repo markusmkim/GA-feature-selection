@@ -5,8 +5,6 @@ from sklearn.metrics import mean_squared_error
 from math import sqrt
 
 
-print('hei')
-
 
 def train(data, y):
     model = LinearRegression().fit(data, y)
