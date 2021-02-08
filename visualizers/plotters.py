@@ -2,6 +2,8 @@ import matplotlib.pyplot as plt
 import numpy as np
 
 
+# Plots a population's fitness distribution, together with an arbitrary number of supplied additional functions.
+# Requires individual.decimal_value (phenotype) to map populaiton to real-valued number line.
 def plot_population_fitness(population, interval, additional_functions=[]):
     for f in additional_functions:
         x = np.linspace(interval[0], interval[1], 10000)
