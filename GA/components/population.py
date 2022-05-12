@@ -14,12 +14,11 @@ class Individual:
         self.decimal_value = None
 
 
-def create_initial_population(population_size):
-    # 101 columns means bitstrings of length = 101.
+def create_initial_population(population_size, n_features):
     population = []
     for i in range(population_size):
         s = ""
-        for i in range(101):
+        for i in range(n_features):
             s += str(random.randint(0, 1))
 
         individual = Individual(s)

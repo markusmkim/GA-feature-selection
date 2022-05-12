@@ -7,9 +7,9 @@ from .utils import get_avg_fitness, get_total_positive_fitness
 
 
 
-def run_ga(population_size, generations, mutation_rate, crossover_rate, fitnesss_function, crowding=False, epoch_callback=None):
+def run_ga(n_features, population_size, generations, mutation_rate, crossover_rate, fitnesss_function, crowding=False, epoch_callback=None):
     # initialize population and evaluate fitness
-    population = create_initial_population(population_size)
+    population = create_initial_population(population_size, n_features)
     total_positive_fitness = apply_fitness(population, fitnesss_function)
 
     if epoch_callback is not None:
@@ -56,3 +56,5 @@ def run_ga(population_size, generations, mutation_rate, crossover_rate, fitnesss
     
         if epoch_callback is not None:
             epoch_callback(population, i + 1)
+            
+    return population
